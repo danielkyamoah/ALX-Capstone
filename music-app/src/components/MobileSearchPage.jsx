@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { searchTracks } from "../utils/api";
 
 const MobileSearchPage = () => {
@@ -7,19 +7,35 @@ const MobileSearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation(); // Get location object to access state
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  // Effect to handle initial search query from navigation state
+  useEffect(() => {
+    if (location.state?.initialSearchQuery) {
+      setSearchQuery(location.state.initialSearchQuery);
+      // Directly call a modified search handler that doesn't require an event object
+      performSearch(location.state.initialSearchQuery);
+      // Clear the state so it doesn't trigger on subsequent visits unless new query
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state?.initialSearchQuery]);
+
+  const performSearch = async (query) => {
     setError(null); // Clear previous errors
-    if (!searchQuery.trim()) return;
+    if (!query.trim()) return;
 
     try {
-      const data = await searchTracks(searchQuery);
+      const data = await searchTracks(query);
       setSearchResults(data);
     } catch (error) {
       console.error("Error fetching data from Deezer API:", error);
       setError("Failed to fetch music. Please try again.");
     }
+  };
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    performSearch(searchQuery);
   };
 
   const handlePlayTrack = (trackId) => {

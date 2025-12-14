@@ -40,7 +40,7 @@ const SongDetailPage = () => {
         <p className="text-xl text-red-500 mb-4">{error}</p>
         <button
           onClick={() => navigate("/")}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
         >
           Go Back Home
         </button>
@@ -60,10 +60,23 @@ const SongDetailPage = () => {
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">
       <button
         onClick={() => navigate(-1)} // Go back to the previous page
-        className="absolute top-4 left-4 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center"
+        className="absolute top-4 left-4 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full flex items-center justify-center transition-colors duration-200 shadow-md cursor-pointer"
         aria-label="Go back"
       >
-        &larr;
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
       </button>
       <div className="max-w-xl w-full bg-gray-800 rounded-lg shadow-lg overflow-hidden p-6 text-center">
         <img
