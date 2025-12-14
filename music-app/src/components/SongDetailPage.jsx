@@ -26,28 +26,6 @@ const SongDetailPage = () => {
     fetchTrack();
   }, [id]);
 
-  useEffect(() => {
-    if (track && track.id) {
-      try {
-        const storedTracks =
-          JSON.parse(localStorage.getItem("recentlyPlayedTracks")) || [];
-        const newStoredTracks = [
-          track,
-          ...storedTracks.filter((t) => t.id !== track.id),
-        ];
-        localStorage.setItem(
-          "recentlyPlayedTracks",
-          JSON.stringify(newStoredTracks.slice(0, 10))
-        ); // Keep top 10
-      } catch (e) {
-        console.error(
-          "Failed to save recently played track to local storage:",
-          e
-        );
-      }
-    }
-  }, [track]);
-
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
@@ -102,14 +80,16 @@ const SongDetailPage = () => {
         </p>
 
         {track.preview ? (
-          <audio
-            controls
-            autoPlay
-            src={track.preview}
-            className="w-full max-w-md mx-auto"
-          >
-            Your browser does not support the audio element.
-          </audio>
+          <div className="w-full max-w-md mx-auto bg-gray-700 rounded-lg p-2 shadow-inner">
+            <audio
+              controls
+              autoPlay
+              src={track.preview}
+              className="w-full bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         ) : (
           <p className="text-red-400">No preview available for this track.</p>
         )}
