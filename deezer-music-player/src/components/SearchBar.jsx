@@ -19,14 +19,14 @@ export default function SearchBar({ value, onChange, onSubmit }) {
             onChange && onChange(e.target.value);
           }}
           placeholder="Search songs, artists, albums..."
-          className="flex-1 p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-base"
+          className="flex-1 p-3 rounded-md border outline-none focus:ring-2 focus:ring-indigo-400 bg-white"
         />
         <button
-          className="px-3 md:px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center gap-2 transition-colors"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-md flex items-center gap-2"
           type="submit"
         >
-          <FiSearch className="w-5 h-5" />
-          <span className="hidden sm:inline">Search</span>
+          <FiSearch />
+          Search
         </button>
       </div>
     </form>

@@ -50,17 +50,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 pb-24 md:pb-8 pt-safe">
-      <header className="max-w-5xl mx-auto p-4 md:p-8 pt-6 md:pt-8">
-        <h1 className="text-xl md:text-2xl font-extrabold">
-          Deezer Music Player
-        </h1>
+    <div className="min-h-screen bg-gray-50 text-gray-900 p-4 md:p-8">
+      <header className="max-w-5xl mx-auto mb-6">
+        <h1 className="text-2xl font-extrabold">Deezer Music Player</h1>
         <p className="text-sm text-gray-500 mt-1">
           Search songs, artists or albums and play 30s previews.
         </p>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 md:px-8 space-y-4 md:space-y-6">
+      <main className="max-w-5xl mx-auto space-y-6">
         <SearchBar
           value={query}
           onChange={setQuery}
