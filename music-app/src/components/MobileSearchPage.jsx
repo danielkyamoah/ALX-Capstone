@@ -7,21 +7,19 @@ const MobileSearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation(); // Get location object to access state
+  const location = useLocation();
 
-  // Effect to handle initial search query from navigation state
   useEffect(() => {
     if (location.state?.initialSearchQuery) {
       setSearchQuery(location.state.initialSearchQuery);
-      // Directly call a modified search handler that doesn't require an event object
+
       performSearch(location.state.initialSearchQuery);
-      // Clear the state so it doesn't trigger on subsequent visits unless new query
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location.state?.initialSearchQuery]);
 
   const performSearch = async (query) => {
-    setError(null); // Clear previous errors
+    setError(null);
     if (!query.trim()) return;
 
     try {
@@ -48,7 +46,6 @@ const MobileSearchPage = () => {
         Search
       </h1>
 
-      {/* Search Bar */}
       <form onSubmit={handleSearch} className="w-full max-w-lg mb-8">
         <div className="flex items-center border-b border-indigo-500 py-2">
           <input
@@ -70,7 +67,6 @@ const MobileSearchPage = () => {
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      {/* Search Results */}
       <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         {searchResults.length > 0 ? (
           searchResults.map((track) => (

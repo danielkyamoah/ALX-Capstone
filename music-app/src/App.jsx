@@ -6,7 +6,7 @@ import MobileNavbar from "./components/MobileNavbar";
 import MobileSearchPage from "./components/MobileSearchPage";
 
 function App() {
-  const [error, setError] = useState(null); // Keep a general error state for the App component
+  const [error, setError] = useState(null);
   const [charts, setCharts] = useState([]);
   const [chartsLoading, setChartsLoading] = useState(true);
   const [chartsError, setChartsError] = useState(null);
@@ -30,7 +30,7 @@ function App() {
     };
 
     fetchCharts();
-  }, []); // Run once on component mount
+  }, []);
 
   const handlePlayTrack = (trackId) => {
     navigate(`/track/${trackId}`);
@@ -40,14 +40,13 @@ function App() {
     e.preventDefault();
     if (quickSearchQuery.trim()) {
       navigate("/search", { state: { initialSearchQuery: quickSearchQuery } });
-      setQuickSearchQuery(""); // Clear quick search bar
-      setShowQuickSearchBar(false); // Hide quick search bar
+      setQuickSearchQuery("");
+      setShowQuickSearchBar(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16 sm:pb-4">
-      {/* Header */}
       <h1 className="text-4xl font-bold mb-8 text-indigo-400">Music Player</h1>
 
       <Routes>
@@ -55,7 +54,6 @@ function App() {
           path="/"
           element={
             <>
-              {/* Mobile Quick Search Toggle */}
               <div className="w-full max-w-4xl flex justify-end mb-4">
                 <button
                   onClick={() => setShowQuickSearchBar(!showQuickSearchBar)}
@@ -78,7 +76,6 @@ function App() {
                   </svg>
                 </button>
               </div>
-              {/* Mobile Quick Search Bar (visible when toggled) */}
               <form
                 onSubmit={handleQuickSearch}
                 className={`w-full max-w-lg mb-8 transition-all duration-300 ease-in-out overflow-hidden ${

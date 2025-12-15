@@ -1,10 +1,3 @@
-// utils/api.js
-
-/**
- * Search for tracks by query string
- * @param {string} q - Search query
- * @returns {Promise<Array>} Array of track objects or empty array on error
- */
 export const searchTracks = async (q) => {
   try {
     const url = `/api/search?q=${encodeURIComponent(q)}`;
@@ -31,11 +24,6 @@ export const searchTracks = async (q) => {
   }
 };
 
-/**
- * Get a single track by ID
- * @param {string|number} id - Track ID
- * @returns {Promise<Object>} Track object
- */
 export const getTrackById = async (id) => {
   try {
     const url = `/api/track/${id}`;
@@ -61,10 +49,6 @@ export const getTrackById = async (id) => {
   }
 };
 
-/**
- * Get global charts from Deezer API
- * @returns {Promise<Object>} Object containing various chart data (tracks, albums, artists, playlists)
- */
 export const getCharts = async () => {
   try {
     const url = `/api/chart`;

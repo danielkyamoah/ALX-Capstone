@@ -59,7 +59,7 @@ const SongDetailPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">
       <button
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => navigate(-1)}
         className="absolute top-4 left-4 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full flex items-center justify-center transition-colors duration-200 shadow-md cursor-pointer"
         aria-label="Go back"
       >
