@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getTrackById } from "../utils/api";
+import { AppContext } from "../App"; // Import AppContext
 
 const SongDetailPage = () => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const SongDetailPage = () => {
   const [track, setTrack] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addTrackToRecentlyPlayed } = useContext(AppContext); // Use useContext to get the function
 
   useEffect(() => {
     const fetchTrack = async () => {
@@ -15,6 +17,7 @@ const SongDetailPage = () => {
         setLoading(true);
         const trackData = await getTrackById(id);
         setTrack(trackData);
+        addTrackToRecentlyPlayed(trackData); // Add track to recently played
       } catch (err) {
         console.error("Failed to fetch track details:", err);
         setError("Could not load song details. Please try again.");
@@ -24,7 +27,7 @@ const SongDetailPage = () => {
     };
 
     fetchTrack();
-  }, [id]);
+  }, [id, addTrackToRecentlyPlayed]);
 
   if (loading) {
     return (

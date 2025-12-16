@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { searchTracks } from "../utils/api";
+import { AppContext } from "../App";
 
 const MobileSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,6 +9,7 @@ const MobileSearchPage = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { addSearchQueryToHistory } = useContext(AppContext);
 
   useEffect(() => {
     if (location.state?.initialSearchQuery) {
@@ -21,6 +23,8 @@ const MobileSearchPage = () => {
   const performSearch = async (query) => {
     setError(null);
     if (!query.trim()) return;
+
+    addSearchQueryToHistory(query); // Add search query to history
 
     try {
       const data = await searchTracks(query);
