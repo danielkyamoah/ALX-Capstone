@@ -106,7 +106,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ addTrackToRecentlyPlayed, addSearchQueryToHistory }}>
-      <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16 sm:pb-4">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16 sm:pb-4">
       <h1 className="text-4xl font-bold mb-8 text-indigo-400">Music Player</h1>
 
       <Routes>

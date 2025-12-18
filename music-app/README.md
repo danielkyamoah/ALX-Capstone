@@ -26,17 +26,15 @@ To get this project up and running on your local machine, follow these steps:
 
 Make sure you have Node.js and npm (Node Package Manager) installed.
 
-*   [Node.js](https://nodejs.org/en/download/) (which includes npm)
+*   [Node.js](https://nodejs.org/en/download/)
 
 ### Installation
-
 1.  **Clone the repository:**
 
     ```bash
     git clone <repository-url>
     cd music-app
     ```
-
 2.  **Install dependencies:**
 
     ```bash
@@ -44,17 +42,14 @@ Make sure you have Node.js and npm (Node Package Manager) installed.
     ```
 
 ## Running the Application
-
 To start the development server and view the application in your browser:
 
 ```bash
 npm run dev
 ```
-
 The application should open automatically in your default web browser, usually at `http://localhost:5173/`.
 
 ## API Integration
-
 This application interacts with a backend server that acts as a proxy to an external music API (like Deezer). The frontend makes calls to local endpoints such as:
 
 *   `/api/search`: For searching tracks.
