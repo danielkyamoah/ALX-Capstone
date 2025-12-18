@@ -16,7 +16,7 @@ const HistoryDisplay = ({ title, items, type, onClear, onSelect }) => {
   return (
     <section className="w-full max-w-4xl mb-12">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-indigo-300">{title}</h2>
+        <h2 className="text-3xl font-bold text-blue-300">{title}</h2>
         {items.length > 0 && (
           <button
             onClick={onClear}

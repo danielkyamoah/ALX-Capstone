@@ -8,7 +8,7 @@ const MobileNavbar = () => {
     `flex flex-col items-center p-2 text-sm font-medium transition-colors duration-200
     ${
       location.pathname === path
-        ? "text-indigo-400"
+        ? "text-blue-400"
         : "text-gray-400 hover:text-white"
     }`;
 

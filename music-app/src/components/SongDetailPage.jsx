@@ -43,7 +43,7 @@ const SongDetailPage = () => {
         <p className="text-xl text-red-500 mb-4">{error}</p>
         <button
           onClick={() => navigate("/")}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
         >
           Go Back Home
         </button>
@@ -87,9 +87,7 @@ const SongDetailPage = () => {
           alt={track.title}
           className="w-64 h-64 object-cover rounded-lg mx-auto mb-6 shadow-md"
         />
-        <h2 className="text-3xl font-bold mb-2 text-indigo-400">
-          {track.title}
-        </h2>
+        <h2 className="text-3xl font-bold mb-2 text-blue-400">{track.title}</h2>
         <p className="text-xl text-gray-300 mb-4">{track.artist?.name}</p>
         <p className="text-md text-gray-400 mb-6">
           Album: {track.album?.title}
@@ -101,7 +99,7 @@ const SongDetailPage = () => {
               controls
               autoPlay
               src={track.preview}
-              className="w-full bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Your browser does not support the audio element.
             </audio>
