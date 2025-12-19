@@ -46,7 +46,7 @@ const MobileSearchPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16">
-      <h1 className="text-4xl font-bold mb-8 text-blue-400 md:hidden">
+      <h1 className="text-4xl font-bold mb-8 text-blue-500 md:hidden">
         Search
       </h1>
 

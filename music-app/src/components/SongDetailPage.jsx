@@ -87,7 +87,7 @@ const SongDetailPage = () => {
           alt={track.title}
           className="w-64 h-64 object-cover rounded-lg mx-auto mb-6 shadow-md"
         />
-        <h2 className="text-3xl font-bold mb-2 text-blue-400">{track.title}</h2>
+        <h2 className="text-3xl font-bold mb-2 text-blue-500">{track.title}</h2>
         <p className="text-xl text-gray-300 mb-4">{track.artist?.name}</p>
         <p className="text-md text-gray-400 mb-6">
           Album: {track.album?.title}

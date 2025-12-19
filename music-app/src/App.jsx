@@ -112,7 +112,7 @@ function App() {
       value={{ addTrackToRecentlyPlayed, addSearchQueryToHistory }}
     >
       <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16 sm:pb-4">
-        <h1 className="text-4xl font-bold mb-8 text-blue-400">Music Player</h1>
+        <h1 className="text-4xl font-bold mb-8 text-blue-500">Music Player</h1>
 
         <Routes>
           <Route
