@@ -8,12 +8,12 @@ const MobileNavbar = () => {
     `flex items-center justify-center p-3 transition-colors duration-200
     ${
       location.pathname === path
-        ? "text-blue-500"
+        ? "text-[#6773D2]"
         : "text-gray-400 hover:text-white"
     }`;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 shadow-lg md:hidden z-50">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#FF9FB2] shadow-lg md:hidden z-50">
       <div className="flex justify-around h-16">
         <NavLink to="/" className={navLinkClasses("/")} aria-label="Home">
           <svg

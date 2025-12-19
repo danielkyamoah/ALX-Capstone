@@ -111,8 +111,8 @@ function App() {
     <AppContext.Provider
       value={{ addTrackToRecentlyPlayed, addSearchQueryToHistory }}
     >
-      <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16 sm:pb-4">
-        <h1 className="text-4xl font-bold mb-8 text-blue-500">Music Player</h1>
+      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex flex-col items-center p-4 pb-16 sm:pb-4">
+        <h1 className="text-4xl font-bold mb-8 text-[#6773D2]">Music Player</h1>
 
         <Routes>
           <Route
@@ -122,7 +122,7 @@ function App() {
                 <div className="w-full max-w-4xl flex justify-end mb-4 md:hidden">
                   <button
                     onClick={() => setShowQuickSearchBar(!showQuickSearchBar)}
-                    className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                    className="p-2 rounded-full bg-[#6773D2] hover:bg-[#F0C808] text-white focus:outline-none focus:ring-2 focus:ring-[#FF9FB2] cursor-pointer"
                     aria-label="Toggle search bar"
                   >
                     <svg
@@ -147,7 +147,7 @@ function App() {
                     showQuickSearchBar ? "max-h-screen" : "max-h-0"
                   }`}
                 >
-                  <div className="flex items-center border-b border-blue-500 py-2">
+                  <div className="flex items-center border-b border-[#FF9FB2] py-2">
                     <input
                       className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none placeholder-gray-500"
                       type="text"
@@ -157,7 +157,7 @@ function App() {
                       onChange={(e) => setQuickSearchQuery(e.target.value)}
                     />
                     <button
-                      className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded cursor-pointer"
+                      className="flex-shrink-0 bg-[#FF9FB2] hover:bg-[#F0C808] border-[#FF9FB2] hover:border-[#F0C808] text-white py-1 px-2 rounded cursor-pointer"
                       type="submit"
                     >
                       Search
@@ -173,14 +173,14 @@ function App() {
                 ) : (
                   charts.length > 0 && (
                     <section className="w-full max-w-4xl mb-12">
-                      <h2 className="text-3xl font-bold mb-6 text-blue-300">
+                      <h2 className="text-3xl font-bold mb-6 text-[#6773D2]">
                         Global Charts
                       </h2>
                       <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         {charts.map((track) => (
                           <div
                             key={track.id}
-                            className="bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-gray-700 transition-colors duration-200"
+                            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-[#FF9FB2] transition-colors duration-200"
                             onClick={() => handlePlayTrack(track.id)}
                           >
                             <img
@@ -192,7 +192,7 @@ function App() {
                               <h3 className="font-semibold truncate">
                                 {track.title}
                               </h3>
-                              <p className="text-gray-400 truncate">
+                              <p className="text-[#0A3200] truncate">
                                 {track.artist.name}
                               </p>
                             </div>

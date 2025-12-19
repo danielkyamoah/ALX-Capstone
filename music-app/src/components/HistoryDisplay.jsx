@@ -16,7 +16,7 @@ const HistoryDisplay = ({ title, items, type, onClear, onSelect }) => {
   return (
     <section className="w-full max-w-4xl mb-12">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold text-blue-300">{title}</h2>
+        <h2 className="text-3xl font-bold text-[#6773D2]">{title}</h2>
         {items.length > 0 && (
           <button
             onClick={onClear}
@@ -31,7 +31,7 @@ const HistoryDisplay = ({ title, items, type, onClear, onSelect }) => {
           {items.map((item, index) => (
             <div
               key={type === "tracks" ? item.id : `search-${item}-${index}`}
-              className="bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-gray-700 transition-colors duration-200"
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-[#FF9FB2] transition-colors duration-200"
               onClick={() => handleItemClick(item)}
             >
               {type === "tracks" && (
@@ -46,9 +46,7 @@ const HistoryDisplay = ({ title, items, type, onClear, onSelect }) => {
                   {type === "tracks" ? item.title : item}
                 </h3>
                 {type === "tracks" && (
-                  <p className="text-gray-400 truncate">
-                    {item.artist?.name}
-                  </p>
+                  <p className="text-[#0A3200] truncate">{item.artist?.name}</p>
                 )}
               </div>
             </div>
@@ -64,4 +62,3 @@ const HistoryDisplay = ({ title, items, type, onClear, onSelect }) => {
 };
 
 export default HistoryDisplay;
-

@@ -45,13 +45,13 @@ const MobileSearchPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-4 pb-16">
-      <h1 className="text-4xl font-bold mb-8 text-blue-500 md:hidden">
+    <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex flex-col items-center p-4 pb-16">
+      <h1 className="text-4xl font-bold mb-8 text-[#6773D2] md:hidden">
         Search
       </h1>
 
       <form onSubmit={handleSearch} className="w-full max-w-lg mb-8">
-        <div className="flex items-center border-b border-blue-500 py-2">
+        <div className="flex items-center border-b border-[#FF9FB2] py-2">
           <input
             className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none placeholder-gray-500"
             type="text"
@@ -61,7 +61,7 @@ const MobileSearchPage = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button
-            className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+            className="flex-shrink-0 bg-[#FF9FB2] hover:bg-[#F0C808] border-[#FF9FB2] hover:border-[#F0C808] text-white py-1 px-2 rounded"
             type="submit"
           >
             Search
@@ -76,7 +76,7 @@ const MobileSearchPage = () => {
           searchResults.map((track) => (
             <div
               key={track.id}
-              className="bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-gray-700 transition-colors duration-200"
+              className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:bg-[#FF9FB2] transition-colors duration-200"
               onClick={() => handlePlayTrack(track.id)}
             >
               <img
@@ -88,7 +88,7 @@ const MobileSearchPage = () => {
                 <h3 className="text-lg font-semibold truncate">
                   {track.title}
                 </h3>
-                <p className="text-sm text-gray-400 truncate">
+                <p className="text-sm text-[#0A3200] truncate">
                   {track.artist.name}
                 </p>
               </div>

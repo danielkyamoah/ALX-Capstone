@@ -31,7 +31,7 @@ const SongDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex items-center justify-center">
         <p className="text-xl">Loading song...</p>
       </div>
     );
@@ -39,11 +39,11 @@ const SongDetailPage = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center flex-col">
+      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex items-center justify-center flex-col">
         <p className="text-xl text-red-500 mb-4">{error}</p>
         <button
           onClick={() => navigate("/")}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          className="bg-[#FF9FB2] hover:bg-[#F0C808] text-white font-bold py-2 px-4 rounded cursor-pointer"
         >
           Go Back Home
         </button>
@@ -53,17 +53,17 @@ const SongDetailPage = () => {
 
   if (!track) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex items-center justify-center">
         <p className="text-xl">Song not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex flex-col items-center justify-center p-4">
       <button
         onClick={() => navigate(-1)}
-        className="absolute top-4 left-4 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full flex items-center justify-center transition-colors duration-200 shadow-md cursor-pointer"
+        className="absolute top-4 left-4 bg-[#6773D2] hover:bg-[#F0C808] text-white p-2 rounded-full flex items-center justify-center transition-colors duration-200 shadow-md cursor-pointer"
         aria-label="Go back"
       >
         <svg
@@ -81,25 +81,25 @@ const SongDetailPage = () => {
           />
         </svg>
       </button>
-      <div className="max-w-xl w-full bg-gray-800 rounded-lg shadow-lg overflow-hidden p-6 text-center">
+      <div className="max-w-xl w-full bg-white rounded-lg shadow-lg overflow-hidden p-6 text-center">
         <img
           src={track.album?.cover_xl || track.album?.cover_medium}
           alt={track.title}
           className="w-64 h-64 object-cover rounded-lg mx-auto mb-6 shadow-md"
         />
-        <h2 className="text-3xl font-bold mb-2 text-blue-500">{track.title}</h2>
-        <p className="text-xl text-gray-300 mb-4">{track.artist?.name}</p>
-        <p className="text-md text-gray-400 mb-6">
+        <h2 className="text-3xl font-bold mb-2 text-[#6773D2]">{track.title}</h2>
+        <p className="text-xl text-[#0A3200] mb-4">{track.artist?.name}</p>
+        <p className="text-md text-[#0A3200] mb-6">
           Album: {track.album?.title}
         </p>
 
         {track.preview ? (
-          <div className="w-full max-w-md mx-auto bg-gray-700 rounded-lg p-2 shadow-inner">
+          <div className="w-full max-w-md mx-auto bg-[#DBF9F4] rounded-lg p-2 shadow-inner border border-[#FF9FB2]">
             <audio
               controls
               autoPlay
               src={track.preview}
-              className="w-full bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-[#DBF9F4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF9FB2]"
             >
               Your browser does not support the audio element.
             </audio>
