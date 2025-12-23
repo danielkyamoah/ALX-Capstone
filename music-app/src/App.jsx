@@ -149,7 +149,7 @@ function App() {
                 >
                   <div className="flex items-center border-b border-[#FF9FB2] py-2">
                     <input
-                      className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none placeholder-gray-500"
+                      className="appearance-none bg-transparent border-none w-full text-[#0A3200] mr-3 py-1 px-2 leading-tight focus:outline-none placeholder-gray-500"
                       type="text"
                       placeholder="Quick search..."
                       aria-label="Quick search music"
