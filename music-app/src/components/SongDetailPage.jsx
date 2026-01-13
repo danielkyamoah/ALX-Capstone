@@ -39,14 +39,30 @@ const SongDetailPage = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex items-center justify-center flex-col">
-        <p className="text-xl text-red-500 mb-4">{error}</p>
-        <button
-          onClick={() => navigate("/")}
-          className="bg-[#FF9FB2] hover:bg-[#F0C808] text-white font-bold py-2 px-4 rounded cursor-pointer"
-        >
-          Go Back Home
-        </button>
+      <div className="min-h-screen bg-[#DBF9F4] text-[#0A3200] flex items-center justify-center flex-col p-4">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
+          <div className="text-red-500 mb-4">
+            <svg className="mx-auto h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+            <h2 className="text-lg font-semibold mb-2">Unable to Load Song</h2>
+            <p className="text-sm">{error}</p>
+          </div>
+          <div className="flex gap-2 justify-center">
+            <button
+              onClick={() => navigate(-1)}
+              className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors duration-200"
+            >
+              Go Back
+            </button>
+            <button
+              onClick={() => navigate("/")}
+              className="bg-[#FF9FB2] hover:bg-[#F0C808] text-white px-4 py-2 rounded transition-colors duration-200"
+            >
+              Home
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

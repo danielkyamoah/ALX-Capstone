@@ -13,6 +13,7 @@ function App() {
   const [charts, setCharts] = useState([]);
   const [chartsLoading, setChartsLoading] = useState(true);
   const [chartsError, setChartsError] = useState(null);
+  const [retryCount, setRetryCount] = useState(0);
   const [showQuickSearchBar, setShowQuickSearchBar] = useState(false);
   const [quickSearchQuery, setQuickSearchQuery] = useState("");
   const [recentlyPlayedTracks, setRecentlyPlayedTracks] = useState(() => {
@@ -81,18 +82,29 @@ function App() {
     const fetchCharts = async () => {
       try {
         setChartsLoading(true);
+        setChartsError(null);
         const chartData = await getCharts();
         setCharts(chartData.tracks.data);
+        setRetryCount(0); // Reset retry count on success
       } catch (err) {
         console.error("Error fetching charts:", err);
-        setChartsError("Failed to load charts. Please try again.");
+        const errorMessage =
+          err.message || "Failed to load charts. Please try again.";
+        setChartsError(errorMessage);
+        setCharts([]); // Clear charts on error
       } finally {
         setChartsLoading(false);
       }
     };
 
     fetchCharts();
-  }, []);
+  }, [retryCount]); // Re-run when retryCount changes
+
+  const handleRetryCharts = () => {
+    if (retryCount < 3) {
+      setRetryCount((prev) => prev + 1);
+    }
+  };
 
   const handlePlayTrack = (trackId) => {
     navigate(`/track/${trackId}`);
@@ -165,11 +177,29 @@ function App() {
                   </div>
                 </form>
                 {chartsLoading ? (
-                  <p className="text-center text-gray-500 mb-8">
-                    Loading charts...
-                  </p>
+                  <div className="text-center mb-8">
+                    <p className="text-[#6773D2] mb-2">
+                      Loading global charts...
+                    </p>
+                    <div className="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-[#FF9FB2]"></div>
+                  </div>
                 ) : chartsError ? (
-                  <p className="text-center text-red-500 mb-8">{chartsError}</p>
+                  <div className="text-center mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-600 mb-4">{chartsError}</p>
+                    {retryCount < 3 && (
+                      <button
+                        onClick={handleRetryCharts}
+                        className="bg-[#FF9FB2] hover:bg-[#F0C808] text-white px-4 py-2 rounded transition-colors duration-200"
+                      >
+                        Try Again ({retryCount}/3)
+                      </button>
+                    )}
+                    {retryCount >= 3 && (
+                      <p className="text-sm text-gray-600 mt-2">
+                        Please refresh the page or try again later.
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   charts.length > 0 && (
                     <section className="w-full max-w-4xl mb-12">
